@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="center-container">
+    <hotel-list
+      :hotels="hotels"
+      :defaultImageUrl="defaultImageUrl"
+    ></hotel-list>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Vue from "vue";
+import HotelList from "@/components/HotelList.vue";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
-@Component({
+export default Vue.extend({
+  name: "Home",
   components: {
-    HelloWorld,
+    HotelList,
   },
-})
-export default class Home extends Vue {}
+  computed: {
+    ...mapState({
+      hotels: (state: any) => state.hotels,
+      defaultImageUrl: (state: any) => state.defaultImageUrl,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchHotels: "fetchHotels",
+    }),
+  },
+  mounted() {
+    this.fetchHotels();
+  },
+});
 </script>
+
+<style lang="scss" scoped>
+.center-container {
+  max-width: 50rem;
+  margin: auto;
+}
+</style>
