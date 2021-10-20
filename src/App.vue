@@ -6,6 +6,19 @@
 </template>
 
 <style lang="scss">
+#app {
+  h1 {
+    text-align: center;
+  }
+}
+
+/** common */
+
+.center-container {
+  max-width: 50rem;
+  margin: auto;
+}
+
 @media screen and (min-width: 960px) {
   html {
     margin-left: calc(100vw - 100%);
@@ -18,10 +31,6 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  text-align: center;
 }
 
 .btn {
@@ -37,10 +46,5 @@ h1 {
     background-color: #555;
     font-size: 15px;
   }
-}
-
-.center-container {
-  max-width: 50rem;
-  margin: auto;
 }
 </style>

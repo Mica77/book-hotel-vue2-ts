@@ -1,6 +1,6 @@
 <template>
   <div class="hotel-list">
-    <hotel-item
+    <hotel-list-item
       v-for="hotel in hotels"
       :key="hotel.id"
       :hotel="hotel"
@@ -11,12 +11,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HotelItem from "@/components/HotelItem.vue";
+import HotelListItem from "@/components/HotelListItem.vue";
 
 export default Vue.extend({
   name: "HotelList",
   components: {
-    HotelItem,
+    HotelListItem,
   },
   props: {
     hotels: {

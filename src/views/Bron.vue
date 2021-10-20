@@ -1,7 +1,7 @@
 <template>
   <div class="bron center-container">
-    <hotel-item-description
-      class="bron_hotel-description"
+    <hotel-description
+      class="bron__hotel-description"
       :hotel="hotel"
       :defaultImageUrl="defaultImageUrl"
     />
@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HotelItemDescription from "@/components/HotelItemDescription.vue";
+import HotelDescription from "@/components/HotelDescription.vue";
 import BronForm from "@/components/BronForm.vue";
 import BronResult from "@/components/BronResult.vue";
 import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
@@ -22,7 +22,7 @@ export default Vue.extend({
   components: {
     BronForm,
     BronResult,
-    HotelItemDescription,
+    HotelDescription,
   },
   data: () => ({
     isInBook: false,
@@ -56,7 +56,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.bron_hotel-description {
+.bron__hotel-description {
   margin-bottom: 3rem;
 }
 </style>

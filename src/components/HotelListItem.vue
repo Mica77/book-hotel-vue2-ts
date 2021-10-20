@@ -1,7 +1,7 @@
 <template>
   <div class="hotel">
-    <hotel-item-description :hotel="hotel" :defaultImageUrl="defaultImageUrl" />
-    <div class="footer">
+    <hotel-description :hotel="hotel" :defaultImageUrl="defaultImageUrl" />
+    <div class="hotel__footer">
       <button class="btn" @click="$router.push(`bron/${hotel.id}`)">
         Бронировать
       </button>
@@ -11,12 +11,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import HotelItemDescription from "@/components/HotelItemDescription.vue";
+import HotelDescription from "@/components/HotelDescription.vue";
 
 export default Vue.extend({
-  name: "HotelItem",
+  name: "HotelListItem",
   components: {
-    HotelItemDescription,
+    HotelDescription,
   },
   props: {
     hotel: {
@@ -33,25 +33,12 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .hotel {
   border: thin #c0c0c0 solid;
-  box-shadow: 5px 5px 5px gray;
   padding: 2rem;
 
-  .footer {
+  &__footer {
     display: flex;
     justify-content: flex-end;
     padding-top: 2rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hotel {
-    .body {
-      flex-direction: column;
-
-      .body-text {
-        padding-top: 1rem;
-      }
-    }
   }
 }
 </style>

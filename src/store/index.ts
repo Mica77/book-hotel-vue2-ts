@@ -6,16 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loadingComplete: false,
     hotels: [],
     defaultImageUrl: 'img/default.jpeg',
     currentHotel: {},
     bookResult: {}
   },
   mutations: {
-    setLoadingComplete(state, value) {
-      state.loadingComplete = value;
-    },
     setHotels(state, value) {
       state.hotels = value
     },
@@ -37,7 +33,7 @@ export default new Vuex.Store({
         commit('setHotels', response.data)
 
       } finally {
-        commit('setLoadingComplete', true);
+
       }
     },
 
@@ -57,7 +53,7 @@ export default new Vuex.Store({
       }
     },
 
-    async book({ state, commit, dispatch }, bookParams) {
+    async book({ state, commit }, bookParams) {
 
       console.log(bookParams)
 
@@ -65,7 +61,7 @@ export default new Vuex.Store({
       const response = await new Promise((resolve, reject) => {
         setTimeout(function () {
           resolve({ success: true });
-        }, 1000)
+        }, 300)
       })
 
       commit('setBookResult', response)
