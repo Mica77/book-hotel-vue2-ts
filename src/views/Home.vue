@@ -35,8 +35,4 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.center-container {
-  max-width: 50rem;
-  margin: auto;
-}
 </style>

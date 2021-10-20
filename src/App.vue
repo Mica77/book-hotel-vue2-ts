@@ -15,15 +15,32 @@
 
 body {
   color: #2c3e50;
-}
-
-#app {
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  h1 {
-    text-align: center;
+h1 {
+  text-align: center;
+}
+
+.btn {
+  padding: 0.4rem 2rem;
+  display: block;
+  background-color: #333;
+  color: white;
+  font-size: 15px;
+
+  :hover {
+    color: white;
+    font-size: 18px;
+    background-color: #555;
+    font-size: 15px;
   }
+}
+
+.center-container {
+  max-width: 50rem;
+  margin: auto;
 }
 </style>

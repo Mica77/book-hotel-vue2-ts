@@ -1,10 +1,9 @@
 <template>
-  <div class="hotel">
-    <hotel-item-description :hotel="hotel" :defaultImageUrl="defaultImageUrl" />
-    <div class="footer">
-      <button class="btn" @click="$router.push(`bron/${hotel.id}`)">
-        Бронировать
-      </button>
+  <div class="hotel-description">
+    <h3>{{ hotel.title }}</h3>
+    <div class="body">
+      <img class="hotel-image" :src="hotel.imageUrl || defaultImageUrl" />
+      <div class="body-text">{{ hotel.body }}</div>
     </div>
   </div>
 </template>
@@ -14,10 +13,12 @@ import Vue from "vue";
 import HotelItemDescription from "@/components/HotelItemDescription.vue";
 
 export default Vue.extend({
-  name: "HotelItem",
+  name: "HotelItemDescription",
+
   components: {
     HotelItemDescription,
   },
+
   props: {
     hotel: {
       type: Object,
@@ -31,20 +32,23 @@ export default Vue.extend({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.hotel {
-  border: thin #c0c0c0 solid;
-  box-shadow: 5px 5px 5px gray;
-  padding: 2rem;
-
-  .footer {
+.hotel-description {
+  .body {
     display: flex;
-    justify-content: flex-end;
-    padding-top: 2rem;
+    flex-wrap: no-wrap;
+
+    .hotel-image {
+      width: 40%;
+      min-width: 250px;
+      max-height: 200px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .hotel {
+  .hotel-description {
     .body {
       flex-direction: column;
 
